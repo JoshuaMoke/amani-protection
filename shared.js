@@ -70,16 +70,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (galleryGrid) {
-    fetch('portfolio.json')
+    fetch('/api/photos')
       .then(res => res.json())
       .then(data => {
-        // Make image paths relative to work on GitHub Pages subdirectories
-        photos = data.map(function(p) {
-          if (p.src && p.src.startsWith('/')) {
-            p.src = '.' + p.src;
-          }
-          return p;
-        });
+        photos = data;
         renderGallery();
       })
       .catch(err => console.error("Error loading photos:", err));
