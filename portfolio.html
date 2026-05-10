@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Amani Protection</title>
+<meta name="description" content="Real examples of Amani Protection in action. Event coverage, site work, and professional presence across Canada.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script src="nav-footer.js"></script>
+
+<div class="page-header">
+  <div class="page-header-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> Portfolio</div>
+    <h1>Our Portfolio</h1>
+    <p>Real examples of Amani Protection in action. Professional presence, event coverage, and the standard clients can expect.</p>
+  </div>
+</div>
+
+<section class="portfolio-section">
+  <div class="reveal">
+    <div class="section-tag">Our Work</div>
+    <h2 class="section-title">Amani Protection in the Field</h2>
+    <p class="section-sub">This portfolio highlights real examples from our engagements across Canada. Upload your event and site photos below to keep this page up to date.</p>
+  </div>
+
+  <div class="portfolio-filters reveal" style="margin-top:36px;">
+    <button class="filter-btn active" onclick="setFilter('all', this)">All Work</button>
+    <button class="filter-btn" onclick="setFilter('Event Security', this)">Event Security</button>
+    <button class="filter-btn" onclick="setFilter('Residential', this)">Residential</button>
+    <button class="filter-btn" onclick="setFilter('Commercial', this)">Commercial</button>
+    <button class="filter-btn" onclick="setFilter('Bodyguard', this)">Bodyguard</button>
+  </div>
+
+  <div class="portfolio-grid reveal" id="galleryGrid">
+    <div class="portfolio-placeholder">
+      <strong>No Photos Yet</strong>
+      Portfolio images will be displayed here.
+    </div>
+    <!-- Example of how to add a permanent photo (uncomment and replace src):
+    <div class="portfolio-item" data-category="Event Security">
+      <img src="your-image.jpg" alt="Event Security">
+      <div class="portfolio-overlay">
+        <div>
+          <div class="portfolio-tag">Event Security</div>
+          <p style="color:white; font-size:14px; font-weight:600; margin-top:8px;">Description goes here</p>
+        </div>
+      </div>
+    </div>
+    -->
+  </div>
+</section>
+
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "amani-website",
+  "version": "1.0.0",
+  "description": "Static HTML website",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  }
+}

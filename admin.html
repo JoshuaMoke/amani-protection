@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | Amani Protection</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .admin-container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 40px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
+  .admin-header {
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--grey-light);
+  }
+  .form-group { margin-bottom: 20px; }
+  .photo-list { margin-top: 40px; }
+  .photo-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px; border: 1px solid var(--grey-light);
+    border-radius: 8px; margin-bottom: 12px;
+  }
+  .photo-item img { width: 100px; height: 75px; object-fit: cover; border-radius: 4px; }
+  .photo-info { flex: 1; }
+  .photo-info strong { display: block; color: var(--navy); }
+  .photo-info span { font-size: 13px; color: var(--grey); }
+  .btn-danger {
+    background: #dc2626; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;
+  }
+</style>
+</head>
+<body style="background: var(--offwhite);">
+
+<div class="admin-container">
+  <div class="admin-header">
+    <h1 style="color:var(--navy);">Portfolio Admin</h1>
+    <p style="color:var(--grey);">Upload and manage your portfolio photos here.</p>
+  </div>
+
+  <div id="authSection">
+    <div class="form-group">
+      <label>Admin Password</label>
+      <input type="password" id="password" placeholder="Enter password to manage photos">
+    </div>
+  </div>
+
+  <div style="background: var(--offwhite); padding: 24px; border-radius: 8px; margin-bottom: 40px;">
+    <h3>Upload New Photo</h3>
+    <form id="uploadForm">
+      <div class="form-group" style="margin-top:16px;">
+        <label>Photo File</label>
+        <input type="file" id="file" accept="image/*" required>
+      </div>
+      <div class="form-group">
+        <label>Caption</label>
+        <input type="text" id="caption" placeholder="e.g. Corporate Event in Toronto" required>
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <select id="category">
+          <option value="Event Security">Event Security</option>
+          <option value="Residential">Residential</option>
+          <option value="Commercial">Commercial</option>
+          <option value="Bodyguard">Bodyguard</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary">Upload Photo</button>
+    </form>
+  </div>
+
+  <h3>Current Portfolio</h3>
+  <div class="photo-list" id="photoList">
+    <!-- Photos will be loaded here -->
+  </div>
+</div>
+
+<script>
+  let photos = [];
+
+  function getPassword() {
+    return document.getElementById('password').value;
+  }
+
+  async function loadPhotos() {
+    const res = await fetch('/api/photos');
+    photos = await res.json();
+    renderPhotos();
+  }
+
+  function renderPhotos() {
+    const list = document.getElementById('photoList');
+    if (photos.length === 0) {
+      list.innerHTML = '<p>No photos uploaded yet.</p>';
+      return;
+    }
+    list.innerHTML = photos.map(p => `
+      <div class="photo-item">
+        <img src="${p.src}" alt="${p.caption}">
+        <div class="photo-info">
+          <strong>${p.caption}</strong>
+          <span>${p.category}</span>
+        </div>
+        <button class="btn-danger" onclick="deletePhoto(${p.id})">Delete</button>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const pass = getPassword();
+    if (!pass) return alert('Please enter the admin password first.');
+
+    const file = document.getElementById('file').files[0];
+    const caption = document.getElementById('caption').value;
+    const category = document.getElementById('category').value;
+
+    const formData = new FormData();
+    formData.append('photo', file);
+    formData.append('caption', caption);
+    formData.append('category', category);
+
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Uploading...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('/api/photos', {
+        method: 'POST',
+        headers: { 'x-admin-password': pass },
+        body: formData
+      });
+      if (!res.ok) throw new Error(await res.text());
+      
+      alert('Photo uploaded successfully!');
+      e.target.reset();
+      loadPhotos();
+    } catch (err) {
+      alert('Upload failed: ' + err.message);
+    } finally {
+      btn.textContent = 'Upload Photo';
+      btn.disabled = false;
+    }
+  });
+
+  async function deletePhoto(id) {
+    const pass = getPassword();
+    if (!pass) return alert('Please enter the admin password to delete.');
+    if (!confirm('Are you sure you want to delete this photo?')) return;
+
+    try {
+      const res = await fetch('/api/photos/' + id, {
+        method: 'DELETE',
+        headers: { 'x-admin-password': pass }
+      });
+      if (!res.ok) throw new Error(await res.text());
+      
+      loadPhotos();
+    } catch (err) {
+      alert('Delete failed: ' + err.message);
+    }
+  }
+
+  loadPhotos();
+</script>
+</body>
+</html>
