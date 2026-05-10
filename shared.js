@@ -60,8 +60,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     galleryGrid.innerHTML = filtered.map(function (p) {
+      var mediaHtml = '';
+      if (p.src && (p.src.toLowerCase().endsWith('.mov') || p.src.toLowerCase().endsWith('.mp4'))) {
+          mediaHtml = '<video src="' + p.src + '" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video>';
+      } else {
+          mediaHtml = '<img src="' + p.src + '" alt="' + p.category + '">';
+      }
       return '<div class="portfolio-item" data-category="' + p.category + '">' +
-        '<img src="' + p.src + '" alt="' + p.category + '">' +
+        mediaHtml +
         '<div class="portfolio-overlay"><div>' +
         '<div class="portfolio-tag">' + p.category + '</div>' +
         '<p style="color:white; font-size:14px; font-weight:600; margin-top:8px;">' + p.caption + '</p>' +
