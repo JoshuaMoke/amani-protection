@@ -1,8 +1,200 @@
 [
   {
-    "id": 1776633987330,
-    "src": "/uploads/1776633987257-862452370.png",
-    "caption": "Test Upload",
+    "id": 1781489502720,
+    "src": "/uploads/vip_protection_escort.jpg",
+    "caption": "Professional VIP close protection escort in public venues",
+    "category": "Bodyguard"
+  },
+  {
+    "id": 1781489502841,
+    "src": "/uploads/crowd_control_event.jpg",
+    "caption": "Crowd management and barricade safety at a high-profile public appearance",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781489502884,
+    "src": "/uploads/night_club_security.jpg",
+    "caption": "Commercial nightlife and venue patrol operations",
     "category": "Commercial"
+  },
+  {
+    "id": 1781489502922,
+    "src": "/uploads/concert_venue_security.jpg",
+    "caption": "Event coordination and stage security for live performances",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781489502933,
+    "src": "/uploads/celebrity_bodyguard.jpg",
+    "caption": "Personal security escort for high-profile artists at exclusive events",
+    "category": "Bodyguard"
+  },
+  {
+    "id": 1781982279217,
+    "src": "/uploads/new-portfolio/2f3dd112-0b92-4618-b883-8d223b7b8f9e.jpeg",
+    "caption": "Amani Protection Security Service",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279218,
+    "src": "/uploads/new-portfolio/409a3d8b-6dba-4895-a3fe-61dcfe59eed6.jpeg",
+    "caption": "Amani Protection Security Service",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279219,
+    "src": "/uploads/new-portfolio/566bf7ba-28f8-4db5-913e-cbcdba2345c0.jpeg",
+    "caption": "Amani Protection Security Service",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279220,
+    "src": "/uploads/new-portfolio/7a8fecf7-0f10-4144-ac96-ad74dcdb6eb9.jpeg",
+    "caption": "Amani Protection Security Service",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279221,
+    "src": "/uploads/new-portfolio/895b45de-b93a-4226-a3c4-4e495bcdfd50.jpeg",
+    "caption": "Amani Protection Security Service",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279222,
+    "src": "/uploads/new-portfolio/cc9098e8-62f9-4e79-9dba-d0693eeaf450.jpeg",
+    "caption": "Amani Protection Security Service",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279223,
+    "src": "/uploads/new-portfolio/IMG_1657.jpeg",
+    "caption": "Amani Protection Operations 1657",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279224,
+    "src": "/uploads/new-portfolio/IMG_1658.jpeg",
+    "caption": "Amani Protection Operations 1658",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279225,
+    "src": "/uploads/new-portfolio/IMG_1661.jpeg",
+    "caption": "Amani Protection Operations 1661",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279226,
+    "src": "/uploads/new-portfolio/IMG_2411.jpeg",
+    "caption": "Amani Protection Operations 2411",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279227,
+    "src": "/uploads/new-portfolio/IMG_2887.jpeg",
+    "caption": "Amani Protection Operations 2887",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279228,
+    "src": "/uploads/new-portfolio/IMG_2888.jpeg",
+    "caption": "Amani Protection Operations 2888",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279229,
+    "src": "/uploads/new-portfolio/IMG_2889.jpeg",
+    "caption": "Amani Protection Operations 2889",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279230,
+    "src": "/uploads/new-portfolio/IMG_2890.jpeg",
+    "caption": "Amani Protection Operations 2890",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279231,
+    "src": "/uploads/new-portfolio/IMG_3297.jpeg",
+    "caption": "Amani Protection Operations 3297",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279232,
+    "src": "/uploads/new-portfolio/IMG_4891.jpeg",
+    "caption": "Amani Protection Operations 4891",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279233,
+    "src": "/uploads/new-portfolio/IMG_4892.jpeg",
+    "caption": "Amani Protection Operations 4892",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279234,
+    "src": "/uploads/new-portfolio/IMG_4893.jpeg",
+    "caption": "Amani Protection Operations 4893",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279235,
+    "src": "/uploads/new-portfolio/IMG_4895.jpeg",
+    "caption": "Amani Protection Operations 4895",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279236,
+    "src": "/uploads/new-portfolio/IMG_4896.jpeg",
+    "caption": "Amani Protection Operations 4896",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279237,
+    "src": "/uploads/new-portfolio/IMG_4897.jpeg",
+    "caption": "Amani Protection Operations 4897",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279238,
+    "src": "/uploads/new-portfolio/IMG_4898.jpeg",
+    "caption": "Amani Protection Operations 4898",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279239,
+    "src": "/uploads/new-portfolio/IMG_4899.jpeg",
+    "caption": "Amani Protection Operations 4899",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279240,
+    "src": "/uploads/new-portfolio/IMG_4900.jpeg",
+    "caption": "Amani Protection Operations 4900",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279241,
+    "src": "/uploads/new-portfolio/IMG_4901.jpeg",
+    "caption": "Amani Protection Operations 4901",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279242,
+    "src": "/uploads/new-portfolio/IMG_4902.jpeg",
+    "caption": "Amani Protection Operations 4902",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279243,
+    "src": "/uploads/new-portfolio/IMG_7100.jpeg",
+    "caption": "Amani Protection Operations 7100",
+    "category": "Event Security"
+  },
+  {
+    "id": 1781982279244,
+    "src": "/uploads/new-portfolio/IMG_9427.jpeg",
+    "caption": "Amani Protection Operations 9427",
+    "category": "Event Security"
   }
 ]
