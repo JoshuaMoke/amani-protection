@@ -27,10 +27,9 @@
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
-          <li><a href="services.html#residential">Residential Security</a></li>
-          <li><a href="services.html#commercial">Commercial Security</a></li>
           <li><a href="services.html#events">Event Security</a></li>
-          <li><a href="services.html#bodyguard">Bodyguard Services</a></li>
+          <li><a href="services.html#concierge">Concierge Services</a></li>
+          <li><a href="services.html#patrol">Patrol Services</a></li>
         </ul>
       </div>
       <div class="footer-col">

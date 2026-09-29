@@ -914,3 +914,11 @@ section { padding: 100px 60px; }
   .footer-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
 }
+
+/* Service detail layout */
+.service-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.service-detail-copy { font-size:15px; line-height:1.85; color:var(--grey); margin:16px 0 24px; }
+.service-detail-list { padding-left:20px; line-height:2; margin-bottom:28px; font-size:14px; }
+.service-detail-list li::marker { color:var(--gold); }
+.service-detail-icon { background:linear-gradient(135deg,var(--navy),var(--navy-mid)); border-radius:12px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; font-size:80px; }
+@media (max-width:768px) { .service-detail-grid { grid-template-columns:1fr; gap:32px; } }

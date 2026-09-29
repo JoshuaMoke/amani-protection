@@ -43,54 +43,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* Dynamic Portfolio rendering from Backend */
-  var photos = [];
-  var currentFilter = 'all';
+  /* Keep the photo-only gallery in sync with the admin photo list.
+     The HTML photos remain available if the API is unavailable. */
   var galleryGrid = document.getElementById('galleryGrid');
-
-  function renderGallery() {
-    if (!galleryGrid) return;
-    var filtered = currentFilter === 'all' ? photos : photos.filter(function (p) { return p.category === currentFilter; });
-    
-    if (filtered.length === 0) {
-      galleryGrid.innerHTML = '<div class="portfolio-placeholder"><strong>' +
-        (currentFilter === 'all' ? 'No photos yet' : 'No photos in this category') +
-        '</strong></div>';
-      return;
-    }
-    
-    galleryGrid.innerHTML = filtered.map(function (p) {
-      var mediaHtml = '';
-      if (p.src && (p.src.toLowerCase().endsWith('.mov') || p.src.toLowerCase().endsWith('.mp4'))) {
-          mediaHtml = '<video src="' + p.src + '" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video>';
-      } else {
-          mediaHtml = '<img src="' + p.src + '" alt="' + p.category + '">';
-      }
-      return '<div class="portfolio-item" data-category="' + p.category + '">' +
-        mediaHtml +
-        '<div class="portfolio-overlay"><div>' +
-        '<div class="portfolio-tag">' + p.category + '</div>' +
-        '<p style="color:white; font-size:14px; font-weight:600; margin-top:8px;">' + p.caption + '</p>' +
-        '</div></div></div>';
-    }).join('');
-  }
-
   if (galleryGrid) {
     fetch('/api/photos')
-      .then(res => res.json())
-      .then(data => {
-        photos = data;
-        renderGallery();
+      .then(function (response) {
+        if (!response.ok) throw new Error('Photos unavailable');
+        return response.json();
       })
-      .catch(err => console.error("Error loading photos:", err));
+      .then(function (photos) {
+        if (!Array.isArray(photos)) return;
+        var fragment = document.createDocumentFragment();
+        photos.forEach(function (photo, index) {
+          if (!photo.src || !/\.(jpe?g|png|webp|gif)$/i.test(photo.src)) return;
+          var item = document.createElement('div');
+          item.className = 'portfolio-item';
+          var img = document.createElement('img');
+          img.src = photo.src;
+          img.alt = 'Amani Protection event photo ' + (index + 1);
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          item.appendChild(img);
+          fragment.appendChild(item);
+        });
+        if (fragment.childNodes.length) galleryGrid.replaceChildren(fragment);
+      })
+      .catch(function () { /* Retain the built-in event photos. */ });
   }
-
-  window.setFilter = function (filter, btn) {
-    currentFilter = filter;
-    document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    renderGallery();
-  };
 
   /* Form submit feedback */
   document.querySelectorAll('form.ajax-form').forEach(function (form) {
